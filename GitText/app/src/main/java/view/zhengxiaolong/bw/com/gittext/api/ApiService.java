@@ -1,5 +1,7 @@
 package view.zhengxiaolong.bw.com.gittext.api;
 
+import android.database.Observable;
+
 import io.reactivex.Flowable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -11,5 +13,5 @@ import view.zhengxiaolong.bw.com.gittext.bean.GetMVInfo;
 
 public interface ApiService {
     @GET("/quarter/getVideos")
-    Flowable<GetMVInfo> getMv(@Query("path") String path,@Query("uid") String uid,@Query("appVersion") String appVersion);
+    Flowable<GetMVInfo> getMv(@Query("path") String path, @Query("uid") String uid, @Query("appVersion") String appVersion);
 }

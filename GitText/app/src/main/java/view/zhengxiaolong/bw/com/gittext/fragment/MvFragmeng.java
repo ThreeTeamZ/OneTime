@@ -1,6 +1,11 @@
 package view.zhengxiaolong.bw.com.gittext.fragment;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import view.zhengxiaolong.bw.com.gittext.R;
 import view.zhengxiaolong.bw.com.gittext.base.BaseFragment;
@@ -9,10 +14,11 @@ import view.zhengxiaolong.bw.com.gittext.base.BaseFragment;
  * Created by lenovo on 2018/4/25.
  */
 
-public class MvTwoFragment extends BaseFragment{
+public class MvFragmeng extends BaseFragment{
+
     @Override
     protected int getLayoutID() {
-        return R.layout.mvtwofragment;
+        return R.layout.mvfragment;
     }
 
     @Override

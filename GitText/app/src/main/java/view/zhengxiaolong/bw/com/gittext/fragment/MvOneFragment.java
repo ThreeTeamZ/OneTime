@@ -19,7 +19,7 @@ public class MvOneFragment extends BaseFragment {
     private RecyclerView mMOneRlv;
 
     @Override
-    protected int getViewID() {
+    protected int getLayoutID() {
         return R.layout.mvonefragment;
     }
 

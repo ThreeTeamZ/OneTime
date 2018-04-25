@@ -14,20 +14,11 @@ import view.zhengxiaolong.bw.com.gittext.base.BaseFragment;
  * Created by lenovo on 2018/4/25.
  */
 
-public class RecommendFragment extends BaseFragment {
-
+public class RecommendFragment extends Fragment {
+    @Nullable
     @Override
-    protected int getViewID() {
-        return 0;
-    }
-
-    @Override
-    protected void initView(View view) {
-
-    }
-
-    @Override
-    protected void initData() {
-
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.recommendfragment,container,false);
+        return view;
     }
 }
