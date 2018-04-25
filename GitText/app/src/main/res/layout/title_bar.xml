@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:background="#0000ff"
     android:orientation="horizontal"
+    android:id="@+id/drawid"
     android:layout_height="50dp">
 
-    <ImageView
+    <ImageButton
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@mipmap/ic_launcher"
@@ -28,4 +29,4 @@
         android:layout_margin="5dp"
         android:id="@+id/mBianJi"/>
 
-</LinearLayout>
+</android.support.v4.widget.DrawerLayout>
