@@ -10,8 +10,6 @@ import view.zhengxiaolong.bw.com.gittext.bean.GetMVInfo;
  */
 
 public interface ApiService {
-
-
     @GET("/quarter/getVideos")
     Flowable<GetMVInfo> getMv(@Query("path") String path,@Query("uid") String uid,@Query("appVersion") String appVersion);
 }
