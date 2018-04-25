@@ -28,8 +28,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initData() {
         mBottomTabBar.init(getSupportFragmentManager())
-                .setImgSize(80,80)
-                .setFontSize(8)
+                .setImgSize(60,60)
+                .setFontSize(12)
                 .setTabPadding(4,6,10)
                 .addTabItem("推荐",R.drawable.tj2,R.drawable.tj1, RecommendFragment.class)
                 .addTabItem("段子",R.drawable.dz2,R.drawable.dz1, ParagraphFragment.class)
