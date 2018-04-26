@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wel"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="一刻钟注册"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="30sp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_mobile"
+        android:hint="请输入手机号。。。"
+        android:layout_margin="40dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_password"
+        android:hint="请输入密码"
+        android:password="true"
+        android:layout_margin="40dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_btn_resign"
+        android:gravity="center"
+        android:background="#f00"
+        android:layout_margin="40dp"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:text="注册"/>
+</LinearLayout>
