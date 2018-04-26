@@ -1,11 +1,10 @@
 package view.zhengxiaolong.bw.com.gittext.fragment;
 
+import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
+import android.content.SharedPreferences;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -13,7 +12,8 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import java.util.List;
 
 import view.zhengxiaolong.bw.com.gittext.R;
-import view.zhengxiaolong.bw.com.gittext.VideoActivity;
+import view.zhengxiaolong.bw.com.gittext.view.LoginActivity;
+import view.zhengxiaolong.bw.com.gittext.view.VideoActivity;
 import view.zhengxiaolong.bw.com.gittext.adapter.MyMVOneAdapter;
 import view.zhengxiaolong.bw.com.gittext.base.BaseFragment;
 import view.zhengxiaolong.bw.com.gittext.bean.GetMVInfo;
@@ -33,7 +33,10 @@ public class MvOneFragment extends BaseFragment implements IMvFragment {
     private List<GetMVInfo.DataBean> dataAll;
     private MyMVOneAdapter adapter;
     private XRecyclerView mMOneRlv;
-    private int appVerson = 1;
+    private int appVerson = 101;
+    private SharedPreferences userOne;
+    private int i;
+
     @Override
     protected int getLayoutID() {
         return R.layout.mvonefragment;
@@ -54,15 +57,7 @@ public class MvOneFragment extends BaseFragment implements IMvFragment {
 
     @Override
     protected void initData() {
-        uid = "1";
-        if (uid.equals("") || uid == null) {
-            Toast.makeText(getActivity(), "未登录", Toast.LENGTH_SHORT).show();
-        } else {
-            persenter.getMv("android", uid, "1");
-        }
-
-
-
+        persenter.getMv("android", 1+"", "1");
     }
 
     @Override
@@ -76,7 +71,7 @@ public class MvOneFragment extends BaseFragment implements IMvFragment {
                 @Override
                 public void onRefresh() {
                     dataAll.clear();
-                    appVerson=1;
+                    appVerson=101;
                     persenter.getMv("android", uid, appVerson+"");
                     mMOneRlv.refreshComplete();
                 }

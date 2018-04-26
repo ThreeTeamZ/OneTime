@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="view.zhengxiaolong.bw.com.gittext.VideoActivity">
-
+    android:orientation="vertical"
+    tools:context="view.zhengxiaolong.bw.com.gittext.view.VideoActivity">
+<include layout="@layout/vedio_title"/>
     <fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
         android:id="@+id/mvPlayer"
         android:layout_width="match_parent"
         android:layout_height="200dp" />
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vedio_pinglun"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/raw_1500033586"/>
+</LinearLayout>

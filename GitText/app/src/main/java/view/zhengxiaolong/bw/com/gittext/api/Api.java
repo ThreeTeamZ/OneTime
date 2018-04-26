@@ -9,5 +9,8 @@ import retrofit2.http.GET;
 public class Api {
     //获取视频 https://www.zhaoapi.cn/quarter/getVideos
     public static final String HOME = " https://www.zhaoapi.cn";
+    //登录 https://www.zhaoapi.cn/user/login
+
+    //注册 https://www.zhaoapi.cn/quarter/register
 
 }
