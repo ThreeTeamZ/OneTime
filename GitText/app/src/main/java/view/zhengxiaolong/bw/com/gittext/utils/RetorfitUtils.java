@@ -43,6 +43,8 @@ public class RetorfitUtils {
                 .addInterceptor(httpLoggingInterceptor)
                 .build();
         Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(path)
+                .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();

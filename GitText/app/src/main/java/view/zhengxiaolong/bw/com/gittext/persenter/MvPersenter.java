@@ -21,21 +21,27 @@ public class MvPersenter implements IMvPersenter {
 
     @Override
     public void onSuccess(List<GetMVInfo.DataBean> dataBeans) {
-
+        if (iMvFragment!=null){
+            iMvFragment.onSuccess(dataBeans);
+        }
     }
 
     @Override
     public void onFailed(String s) {
-
+        if (iMvFragment!=null){
+            iMvFragment.onFailed(s);
+        }
     }
 
     @Override
     public void getMv(String source, String uid, String appVersion) {
-
+        mvModel.getMv(source,uid,appVersion,this);
     }
 
     @Override
     public void onDestory() {
-
+        if (iMvFragment!=null){
+            iMvFragment=null;
+        }
     }
 }

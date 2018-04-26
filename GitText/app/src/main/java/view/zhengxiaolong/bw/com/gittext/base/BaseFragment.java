@@ -14,24 +14,16 @@ import android.view.ViewGroup;
  */
 
 public abstract class BaseFragment extends Fragment {
-
-    public View view;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = LayoutInflater.from(getContext()).inflate(getLayoutID(),container,false);
+        View view = LayoutInflater.from(getContext()).inflate(getLayoutID(),container,false);
         initView(view);
         initData();
-
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return view;
 
     }
-
     protected abstract int getLayoutID();
-
-
     protected abstract void initView(View view);
-
     protected abstract void initData();
 }

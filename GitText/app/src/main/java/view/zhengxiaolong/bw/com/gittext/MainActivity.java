@@ -1,14 +1,11 @@
 package view.zhengxiaolong.bw.com.gittext;
 
-import android.graphics.Color;
-import android.os.Bundle;
-
 import com.hjm.bottomtabbar.BottomTabBar;
 
 import view.zhengxiaolong.bw.com.gittext.base.BaseActivity;
-import view.zhengxiaolong.bw.com.gittext.fragment.MvFragmeng;
 import view.zhengxiaolong.bw.com.gittext.fragment.ParagraphFragment;
 import view.zhengxiaolong.bw.com.gittext.fragment.RecommendFragment;
+import view.zhengxiaolong.bw.com.gittext.fragment.MvFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -33,7 +30,7 @@ public class MainActivity extends BaseActivity {
                 .setTabPadding(4,6,10)
                 .addTabItem("推荐",R.drawable.tj2,R.drawable.tj1, RecommendFragment.class)
                 .addTabItem("段子",R.drawable.dz2,R.drawable.dz1, ParagraphFragment.class)
-                .addTabItem("视频",R.drawable.sp2,R.drawable.sp1, MvFragmeng.class)
+                .addTabItem("视频",R.drawable.sp2,R.drawable.sp1, MvFragment.class)
                 .isShowDivider(false)
                 .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
                     @Override
