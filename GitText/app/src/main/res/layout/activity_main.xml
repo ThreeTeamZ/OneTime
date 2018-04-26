@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/draw_drawerlayout"
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="view.zhengxiaolong.bw.com.gittext.MainActivity">
@@ -10,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <include layout="@layout/title_bar"/>
         <com.hjm.bottomtabbar.BottomTabBar
             android:layout_weight="1"
             android:id="@+id/bottom_tab_bar"
@@ -19,6 +21,8 @@
         </com.hjm.bottomtabbar.BottomTabBar>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/draw_linearlayout"
+        android:orientation="vertical"
         android:layout_width="300dp"
         android:background="#00ffff"
         android:layout_gravity="start"

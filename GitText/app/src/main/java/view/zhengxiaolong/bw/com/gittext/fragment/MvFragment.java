@@ -1,11 +1,9 @@
 package view.zhengxiaolong.bw.com.gittext.fragment;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +23,7 @@ import view.zhengxiaolong.bw.com.gittext.base.BaseFragment;
  * Created by lenovo on 2018/4/25.
  */
 
-public class MvFragment extends BaseFragment {
+public class MvFragment extends BaseFragment implements View.OnClickListener {
 
     private View view;
     private ImageView mMTouXiang;
@@ -54,10 +52,18 @@ public class MvFragment extends BaseFragment {
         mDrawid = (LinearLayout) view.findViewById(R.id.drawid);
         mMMvTab = (TabLayout) view.findViewById(R.id.mMvTab);
         mMMvVp = (ViewPager) view.findViewById(R.id.mMvVp);
+        mMMvTab.setOnClickListener(this);
+        mMMvVp.setOnClickListener(this);
     }
 
     @Override
     protected void initData() {
+//        mMTitle.setText("视频");
+//        Glide.with(this)
+//                .load(R.drawable.touxiang)
+//                .bitmapTransform(new RoundedCornersTransformation(getContext(), 100, 5))
+//                .into(mMTouXiang);
+
         mMMvTab.addTab(mMMvTab.newTab().setText("推荐"));
         mMMvTab.addTab(mMMvTab.newTab().setText("附近"));
 
@@ -76,5 +82,15 @@ public class MvFragment extends BaseFragment {
 
     }
 
-
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            default:
+                break;
+            case R.id.mMvTab:
+                break;
+            case R.id.mMvVp:
+                break;
+        }
+    }
 }

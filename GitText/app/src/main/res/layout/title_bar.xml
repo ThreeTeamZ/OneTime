@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:glide="http://schemas.android.com/tools"
     android:background="#0000ff"
     android:orientation="horizontal"
     android:id="@+id/drawid"
@@ -9,7 +10,11 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/touxiang"
+        android:layout_centerVertical="true"
+        glide:placeholderImage="@mipmap/touxiang"
+        glide:placeholderImageScaleType="fitCenter"
+        glide:roundAsCircle="true"
         android:layout_margin="5dp"
         android:id="@+id/mTouXiang"/>
 
@@ -23,10 +28,10 @@
         android:text="推荐"
         android:id="@+id/mTitle"/>
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/bx"
-        android:layout_margin="5dp"
+        android:layout_margin="10dp"
         android:id="@+id/mBianJi"/>
 
 </LinearLayout>

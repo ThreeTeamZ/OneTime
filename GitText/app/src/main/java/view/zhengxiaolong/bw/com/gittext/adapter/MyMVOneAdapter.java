@@ -5,8 +5,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import view.zhengxiaolong.bw.com.gittext.R;
@@ -17,15 +22,23 @@ import view.zhengxiaolong.bw.com.gittext.bean.GetMVInfo;
  */
 
 public class MyMVOneAdapter extends RecyclerView.Adapter<MyMVOneAdapter.MyViewHolder>{
-    private List<GetMVInfo.DataBean> dataBeans;
+    private List<GetMVInfo.DataBean> dataAll;
     private Context context;
-
+    private List<Integer> heightList;
+    private setOnClick onItemClick;
     public MyMVOneAdapter(Context context) {
         this.context = context;
     }
 
     public void setList(List<GetMVInfo.DataBean> dataBeans){
-        this.dataBeans = dataBeans;
+        this.dataAll = dataBeans;
+        //记录为每个控件产生的随机高度,避免滑回到顶部出现空白
+        heightList = new ArrayList<>();
+        for (int i = 0; i < dataBeans.size(); i++) {
+            int height = new Random().nextInt(200) + 100;//[100,300)的随机数
+            heightList.add(height);
+        }
+        notifyDataSetChanged();
     }
 
     @Override
@@ -36,23 +49,44 @@ public class MyMVOneAdapter extends RecyclerView.Adapter<MyMVOneAdapter.MyViewHo
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.myMyPlayer.setUp(dataBeans.get(position).getVideoUrl(),dataBeans.get(position).getWorkDesc());
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
+        ViewGroup.LayoutParams params = holder.imageView.getLayoutParams();
+        params.height=heightList.get(position);
+        String cover = dataAll.get(position).getCover();
+        String icon = dataAll.get(position).getUser().getIcon();
+        if (cover.equals("")||cover==null){
+            Glide.with(context).load(icon).into(holder.imageView);
+        }else{
+            Glide.with(context).load(cover).into(holder.imageView);
+        }
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClick.onClick(position);
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
-        return dataBeans.size();
+        return dataAll.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
-        private final JCVideoPlayer myMyPlayer;
+
+        private final ImageView imageView;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            myMyPlayer = itemView.findViewById(R.id.myMvPlayer);
+            imageView = itemView.findViewById(R.id.mvImg);
         }
+    }
+    public interface setOnClick{
+        void onClick(int position);
+    }
+    public void setOnItemClick(setOnClick onItemClick){
+        this.onItemClick=onItemClick;
     }
 }
