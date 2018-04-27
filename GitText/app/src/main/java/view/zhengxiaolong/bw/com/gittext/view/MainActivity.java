@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -39,6 +40,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private ListView mDrawLv;
     private TextView mDrawName;
     private SharedPreferences userOne;
+    private TextView mDrawUsername;
+    /**
+     * 退出登录
+     */
+    private Button mTui;
+    private SharedPreferences.Editor edit;
 
     @Override
     protected int getViewID() {
@@ -66,14 +73,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         mDrawTouxaing.setOnClickListener(this);
         mDrawName = (TextView) findViewById(R.id.draw_username);
-        userOne = this.getSharedPreferences("UserOne", MODE_PRIVATE);
 
+        mDrawUsername = (TextView) findViewById(R.id.draw_username);
+        mTui = (Button) findViewById(R.id.tui);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        String name = userOne.getString("name", "嘻嘻嘻");
+        userOne = this.getSharedPreferences("UserOne", MODE_PRIVATE);
+        edit = userOne.edit();
+        String name = userOne.getString("name", "");
         mDrawName.setText(name);
     }
 
@@ -122,10 +132,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mMBianJi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,CreatActivity.class));
+                startActivity(new Intent(MainActivity.this, CreatActivity.class));
             }
         });
 
+        mTui.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edit.clear();
+                edit.commit();
+                Toast.makeText(MainActivity.this, "已退出登录", Toast.LENGTH_SHORT).show();
+                mDrawDrawerlayout.closeDrawer(mDrawLinearlayout);
+            }
+        });
         MyDrawAdapter adapter;
 
 

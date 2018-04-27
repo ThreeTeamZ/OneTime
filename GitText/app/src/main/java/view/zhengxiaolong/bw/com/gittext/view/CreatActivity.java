@@ -1,6 +1,5 @@
 package view.zhengxiaolong.bw.com.gittext.view;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;

@@ -26,7 +26,8 @@
         <activity android:name=".view.LoginActivity" />
         <activity android:name=".view.RegisterActivity" />
         <activity android:name=".view.CreatActivity" />
-        <activity android:name=".view.UserXiangActivity"></activity>
+        <activity android:name=".view.UserXiangActivity" />
+        <activity android:name=".view.AActivity"></activity>
     </application>
 
 </manifest>

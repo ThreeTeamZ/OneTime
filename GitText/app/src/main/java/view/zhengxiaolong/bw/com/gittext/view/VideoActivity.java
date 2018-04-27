@@ -19,15 +19,13 @@ import view.zhengxiaolong.bw.com.gittext.bean.DianZanInfo;
 import view.zhengxiaolong.bw.com.gittext.persenter.DianZanPersenter;
 import view.zhengxiaolong.bw.com.gittext.view.iview.IDianZanActivity;
 
-public class VideoActivity extends BaseActivity<DianZanPersenter> implements View.OnClickListener ,IDianZanActivity{
+public class VideoActivity extends BaseActivity<DianZanPersenter> implements IDianZanActivity{
 
 
     private JCVideoPlayer mMvPlayer;
     private String vedio_url;
     private Intent intent;
     private String title;
-    private String img;
-    private Uri uri;
     private ImageView mBack;
     private ImageView mXin;
     private ImageView mXinsui;
@@ -38,6 +36,8 @@ public class VideoActivity extends BaseActivity<DianZanPersenter> implements Vie
     private String uid;
     private String token;
     private String wid;
+    private boolean flag = false;
+    private String img;
 
     @Override
     protected int getViewID() {
@@ -46,19 +46,16 @@ public class VideoActivity extends BaseActivity<DianZanPersenter> implements Vie
 
     @Override
     protected void initView() {
-
         mMvPlayer = (JCVideoPlayer) findViewById(R.id.mvPlayer);
         intent = getIntent();
         vedio_url = intent.getStringExtra("url");
         title = intent.getStringExtra("title");
         img = intent.getStringExtra("img");
-        uri = Uri.parse(img);
         mBack = (ImageView) findViewById(R.id.back);
         mXin = (ImageView) findViewById(R.id.xin);
         mXinsui = (ImageView) findViewById(R.id.xinsui);
         mFenxiang = (ImageView) findViewById(R.id.fenxiang);
         mVedioTouXiang = (ImageView) findViewById(R.id.Vedio_TouXiang);
-        mMvPlayer.setOnClickListener(this);
         mVedioPinglun = (TextView) findViewById(R.id.vedio_pinglun);
         mSharedPreferences = this.getSharedPreferences("UserOne",MODE_PRIVATE);
         uid = mSharedPreferences.getString("uid", "");
@@ -75,7 +72,7 @@ public class VideoActivity extends BaseActivity<DianZanPersenter> implements Vie
                 .into(mVedioTouXiang);
        // Toast.makeText(this, vedio_url, Toast.LENGTH_SHORT).show();
 
-        mMvPlayer.ivThumb.setImageURI(uri);
+
         if (title == null || title.equals("null")) {
             mMvPlayer.setUp(vedio_url, "");
         } else {
@@ -102,6 +99,23 @@ public class VideoActivity extends BaseActivity<DianZanPersenter> implements Vie
                 startActivity(new Intent(VideoActivity.this,UserXiangActivity.class));
             }
         });
+        mXinsui.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (flag){
+                    mXinsui.setImageResource(R.drawable.xin_white);
+                    Toast.makeText(VideoActivity.this, "", Toast.LENGTH_SHORT).show();
+                    flag = !flag;
+                }else if (!flag){
+                    mXinsui.setImageResource(R.drawable.xin_black);
+                    Toast.makeText(VideoActivity.this, "不喜欢", Toast.LENGTH_SHORT).show();
+                    flag=!flag;
+                    int xin_red = R.drawable.xin;
+                    mXin.setImageResource(xin_red);
+                }
+
+            }
+        });
 
     }
 
@@ -112,21 +126,13 @@ public class VideoActivity extends BaseActivity<DianZanPersenter> implements Vie
     }
 
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            default:
-                break;
-            case R.id.mvPlayer:
-                break;
-        }
-    }
 
     @Override
     public void onSuccess(DianZanInfo dianZanInfo) {
         Toast.makeText(this, dianZanInfo.getMsg(), Toast.LENGTH_SHORT).show();
         int xin_red = R.drawable.xin_red;
         mXin.setImageResource(xin_red);
+
     }
 
     @Override
