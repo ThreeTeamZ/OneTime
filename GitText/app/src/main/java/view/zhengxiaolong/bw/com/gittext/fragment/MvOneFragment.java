@@ -3,6 +3,8 @@ package view.zhengxiaolong.bw.com.gittext.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.View;
@@ -10,9 +12,11 @@ import android.widget.Toast;
 
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import view.zhengxiaolong.bw.com.gittext.R;
+import view.zhengxiaolong.bw.com.gittext.base.BasePresenter;
 import view.zhengxiaolong.bw.com.gittext.view.LoginActivity;
 import view.zhengxiaolong.bw.com.gittext.view.VideoActivity;
 import view.zhengxiaolong.bw.com.gittext.adapter.MyMVOneAdapter;
@@ -36,58 +40,84 @@ public class MvOneFragment extends BaseFragment implements IMvFragment {
     private List<GetMVInfo.DataBean> dataAll;
     private MyMVOneAdapter adapter;
     private XRecyclerView mMOneRlv;
-    private int appVerson = 101;
+    private int count = 1;
     private SharedPreferences userOne;
     private int i;
     private SharedPreferences mSharedPreferences;
 
+
     @Override
-    protected int getLayoutID() {
+    protected int getLayoutId() {
         return R.layout.mvonefragment;
+    }
+
+    @Override
+    protected BasePresenter getPresenter() {
+        return null;
     }
 
     @Override
     protected void initView(View view) {
         mMOneRlv = (XRecyclerView) view.findViewById(R.id.mOneRlv);
-        mMOneRlv.setRefreshProgressStyle(ProgressStyle.BallZigZag); //设定下拉刷新样式
-        mMOneRlv.setLoadingMoreProgressStyle(ProgressStyle.BallZigZag);//设定上拉加载样式
+        /*mMOneRlv.setRefreshProgressStyle(ProgressStyle.BallZigZag); //设定下拉刷新样式
+        mMOneRlv.setLoadingMoreProgressStyle(ProgressStyle.BallZigZag);//设定上拉加载样式*/
 
+<<<<<<< HEAD
         mMOneRlv.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+=======
+       /* RecyclerViewItemDecoration decoration = new RecyclerViewItemDecoration(5);
+        mMOneRlv.addItemDecoration(decoration);*/
+>>>>>>> f53fa8fd6e28e860831a8f178f5e482d485ff5cc
         persenter = new MvPersenter(this);
         mSharedPreferences = getActivity().getSharedPreferences("UserOne",MODE_PRIVATE);
         uid = mSharedPreferences.getString("uid", "");
+        adapter = new MyMVOneAdapter(getContext());
     }
 
     @Override
-    protected void initData() {
-        persenter.getMv("android", 1+"", "1");
-    }
+    protected void getData() {
+        persenter.getMv("android", count + "", count + "");
+        mMOneRlv.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
 
-    @Override
-    public void onSuccess(final List<GetMVInfo.DataBean> dataBeans) {
-        this.dataAll = dataBeans;
-        adapter = new MyMVOneAdapter(getActivity());
-        adapter.setList(dataAll);
         mMOneRlv.setAdapter(adapter);
 
+        //XRecyclerView的上下拉监听方法
         mMOneRlv.setLoadingListener(new XRecyclerView.LoadingListener() {
-                @Override
-                public void onRefresh() {
-                    dataAll.clear();
-                    appVerson=101;
-                    persenter.getMv("android", uid, appVerson+"");
-                    mMOneRlv.refreshComplete();
-                }
+            @Override
+            //下拉刷新
+            public void onRefresh() {
+                count = 1;
+                dataAll.clear();
+                persenter.getMv("android", uid, count + "");
+                mMOneRlv.refreshComplete();
+            }
 
-                @Override
-                public void onLoadMore() {
-                    Toast.makeText(getActivity(), "加载...", Toast.LENGTH_SHORT).show();
-                    appVerson++;
-                    dataAll.addAll(dataBeans);
-                    mMOneRlv.setAdapter(adapter);
-                    mMOneRlv.refreshComplete();
-                }
+            @Override
+            //上拉加载
+            public void onLoadMore() {
+                Toast.makeText(getActivity(), "加载...", Toast.LENGTH_SHORT).show();
+                count++;
+                persenter.getMv("android", uid, count + "");
+                mMOneRlv.refreshComplete();
+            }
         });
+    }
+
+    @Override
+    protected void getDestory() {
+
+    }
+
+    @Override
+    public void onSuccess(List<GetMVInfo.DataBean> dataBeans) {
+        if (dataBeans != null){
+            if (count == 1){
+                dataAll = new ArrayList<>();
+            }
+            dataAll.addAll(dataBeans);
+            adapter.setList(dataAll);
+        }
+
 
         adapter.setOnItemClick(new MyMVOneAdapter.setOnClick() {
             @Override

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -54,7 +55,7 @@ public class MyMVOneAdapter extends RecyclerView.Adapter<MyMVOneAdapter.MyViewHo
         params.height=heightList.get(position);
         String cover = dataAll.get(position).getCover();
         String icon = dataAll.get(position).getUser().getIcon();
-        if (cover.equals("")||cover==null){
+        if (cover.equals("") || cover==null){
             Glide.with(context).load(icon).into(holder.imageView);
         }else{
             Glide.with(context).load(cover).into(holder.imageView);
@@ -65,18 +66,23 @@ public class MyMVOneAdapter extends RecyclerView.Adapter<MyMVOneAdapter.MyViewHo
                 onItemClick.onClick(position);
             }
         });
-
+        /*String icon = dataAll.get(position).getUser().getIcon();
+        if (icon != null && !"".equals(icon)){
+            Glide.with(context).load(icon).into(holder.imageView);
+        }else {
+            Glide.with(context).load(R.mipmap.ic_launcher).into(holder.imageView);
+        }*/
     }
 
     @Override
     public int getItemCount() {
-        return dataAll.size();
+        return dataAll != null ? dataAll.size() : 0;
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
 
-        private final ImageView imageView;
+        private ImageView imageView;
 
         public MyViewHolder(View itemView) {
             super(itemView);

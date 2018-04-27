@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:orientation="vertical"
+    >
+    <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/parag_up" />
+    <TextView
+        android:text="奶茶原为中国北方游牧民族的日常饮品，至今最少已有千年历史。自元朝起传遍世界各地，目前在大中华地区，中亚国家，印度，阿拉伯，英国，马来西亚，新加坡等地区都有不同种类奶茶流行。
+蒙古高原和中亚地区的奶茶千百年来从未改变，至今仍然是日常饮用及待客的必备饮料。其他地区则有不同口味的奶茶，如印度奶茶以加入玛萨拉的特殊香料闻名;发源于香港的丝袜奶茶和发源于台湾的珍珠奶茶也独具特色。奶茶兼具牛奶和茶的双重营养，是家常美食之一，风行世界。奶茶品种包括了奶茶粉， 冰奶茶，热奶茶等。"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/paragTv"
+        />
+
+</LinearLayout>

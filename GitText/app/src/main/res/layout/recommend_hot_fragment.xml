@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:autobanner="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">-->
+            <view.zhengxiaolong.bw.com.gittext.banner.AutoBanner
+                android:id="@+id/hot_auto_banner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                autobanner:indicator_height="10dp"
+                autobanner:indicator_margin="10dp"
+                autobanner:indicator_width="10dp"
+                autobanner:ratio_wh="2.6"
+                android:layout_weight="7"/>
+            <com.jcodecraeer.xrecyclerview.XRecyclerView
+                android:id="@+id/hot_recycle_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"/>
+        <!--</LinearLayout>
+    </ScrollView>-->
+</LinearLayout>
