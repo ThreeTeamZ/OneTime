@@ -18,6 +18,7 @@ import java.util.List;
 import view.zhengxiaolong.bw.com.gittext.R;
 import view.zhengxiaolong.bw.com.gittext.adapter.ViewPagerAdapter;
 import view.zhengxiaolong.bw.com.gittext.base.BaseFragment;
+import view.zhengxiaolong.bw.com.gittext.base.BasePresenter;
 
 /**
  * Created by lenovo on 2018/4/25.
@@ -39,8 +40,13 @@ public class MvFragment extends BaseFragment implements View.OnClickListener {
     private List<String> titles;
 
     @Override
-    protected int getLayoutID() {
+    protected int getLayoutId() {
         return R.layout.mvfragment;
+    }
+
+    @Override
+    protected BasePresenter getPresenter() {
+        return null;
     }
 
     @Override
@@ -57,8 +63,8 @@ public class MvFragment extends BaseFragment implements View.OnClickListener {
     }
 
     @Override
-    protected void initData() {
-//        mMTitle.setText("视频");
+    protected void getData() {
+        //        mMTitle.setText("视频");
 //        Glide.with(this)
 //                .load(R.drawable.touxiang)
 //                .bitmapTransform(new RoundedCornersTransformation(getContext(), 100, 5))
@@ -79,6 +85,10 @@ public class MvFragment extends BaseFragment implements View.OnClickListener {
         ViewPagerAdapter mAdapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(), fragments, titles);
         mMMvVp.setAdapter(mAdapter);
         mMMvTab.setTabMode(TabLayout.MODE_FIXED);
+    }
+
+    @Override
+    protected void getDestory() {
 
     }
 

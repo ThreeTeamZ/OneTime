@@ -1,11 +1,8 @@
 package view.zhengxiaolong.bw.com.gittext.view;
 
-<<<<<<< HEAD:GitText/app/src/main/java/view/zhengxiaolong/bw/com/gittext/MainActivity.java
-=======
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
->>>>>>> cc6d954151d6fe5c1ffb797850592dc8085c93d6:GitText/app/src/main/java/view/zhengxiaolong/bw/com/gittext/view/MainActivity.java
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.ImageView;

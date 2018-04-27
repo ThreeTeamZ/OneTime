@@ -13,6 +13,7 @@ import java.util.List;
 import view.zhengxiaolong.bw.com.gittext.R;
 import view.zhengxiaolong.bw.com.gittext.adapter.DuanAdapter;
 import view.zhengxiaolong.bw.com.gittext.base.BaseFragment;
+import view.zhengxiaolong.bw.com.gittext.base.BasePresenter;
 import view.zhengxiaolong.bw.com.gittext.bean.GetCrossDZ;
 import view.zhengxiaolong.bw.com.gittext.bean.ProgressStyle;
 import view.zhengxiaolong.bw.com.gittext.ifragment.IDZFragment;
@@ -31,9 +32,15 @@ public class ParagraphFragment extends BaseFragment implements IDZFragment{
     private List<GetCrossDZ.DataBean> dataAll;
     private DuanAdapter adapter;
 
+
     @Override
-    protected int getLayoutID() {
+    protected int getLayoutId() {
         return R.layout.paragraphfragment;
+    }
+
+    @Override
+    protected BasePresenter getPresenter() {
+        return null;
     }
 
     @Override
@@ -51,13 +58,17 @@ public class ParagraphFragment extends BaseFragment implements IDZFragment{
     }
 
     @Override
-    protected void initData() {
+    protected void getData() {
         page = "1";
         if (page.equals("") || page == null) {
             Toast.makeText(getActivity(), "未登录", Toast.LENGTH_SHORT).show();
         } else {
             persenter.getMv("android", page, "1");
         }
+    }
+
+    @Override
+    protected void getDestory() {
 
     }
 

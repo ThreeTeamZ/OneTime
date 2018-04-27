@@ -8,13 +8,12 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
-<<<<<<< HEAD
+import view.zhengxiaolong.bw.com.gittext.bean.BannerSuperClass;
 import view.zhengxiaolong.bw.com.gittext.bean.GetCrossDZ;
-=======
 import view.zhengxiaolong.bw.com.gittext.bean.DianZanInfo;
->>>>>>> cc6d954151d6fe5c1ffb797850592dc8085c93d6
 import view.zhengxiaolong.bw.com.gittext.bean.GetMVInfo;
 import view.zhengxiaolong.bw.com.gittext.bean.LoginInfo;
+import view.zhengxiaolong.bw.com.gittext.bean.RecommendListSuperClass;
 import view.zhengxiaolong.bw.com.gittext.bean.RegisterInfo;
 
 /**
@@ -25,12 +24,9 @@ public interface ApiService {
     //获取视频
     @GET("/quarter/getVideos")
     Flowable<GetMVInfo> getMv(@Query("source") String source, @Query("uid") String uid, @Query("appVersion") String appVersion);
-<<<<<<< HEAD
+
     @GET("/quarter/getJokes ")
     Flowable<GetCrossDZ> getDz(@Query("source") String source,@Query("page") String page,@Query("appVersion") String appVersion );
-
-
-=======
 
     //登录
     @FormUrlEncoded
@@ -46,5 +42,13 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("/quarter/praise")
     Flowable<DianZanInfo> getDianZan(@Field("wid") String wid,@Field("uid") String uid,@Field("token") String token,@Field("source") String source,@Field("appVersion")String appVersion);
->>>>>>> cc6d954151d6fe5c1ffb797850592dc8085c93d6
+
+    //广告轮播图
+    @POST("/quarter/getAd")
+    Flowable<BannerSuperClass> getBannerData();
+    //推荐里的列表
+    @FormUrlEncoded
+    @POST("/quarter/getVideos")
+    Flowable<RecommendListSuperClass> getRecommendListData(@Field("uid")String uid, @Field("type")String type, @Field("page")String page, @Field("source")String android, @Field("appVersion")String appVersion);
+
 }
