@@ -6,7 +6,7 @@
     android:id="@+id/draw_drawerlayout"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="view.zhengxiaolong.bw.com.gittext.MainActivity">
+    tools:context="view.zhengxiaolong.bw.com.gittext.view.MainActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,10 +24,35 @@
         android:id="@+id/draw_linearlayout"
         android:orientation="vertical"
         android:layout_width="300dp"
-        android:background="#00ffff"
         android:layout_gravity="start"
+        android:background="#595063"
         android:layout_height="match_parent"
         >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:background="#EDEDEF"
+            android:layout_height="200dp">
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/touxiang"
+            android:id="@+id/draw_touxaing"/>
+            <TextView
+                android:id="@+id/draw_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/draw_touxaing"
+                android:gravity="center"
+                android:layout_marginTop="10dp"/>
+
+        </RelativeLayout>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/draw_lv"/>
     </LinearLayout>
 
     </android.support.v4.widget.DrawerLayout>

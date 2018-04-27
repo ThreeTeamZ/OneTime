@@ -1,9 +1,16 @@
-package view.zhengxiaolong.bw.com.gittext;
+package view.zhengxiaolong.bw.com.gittext.view;
 
+<<<<<<< HEAD:GitText/app/src/main/java/view/zhengxiaolong/bw/com/gittext/MainActivity.java
+=======
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+>>>>>>> cc6d954151d6fe5c1ffb797850592dc8085c93d6:GitText/app/src/main/java/view/zhengxiaolong/bw/com/gittext/view/MainActivity.java
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -11,6 +18,8 @@ import com.bumptech.glide.Glide;
 import com.hjm.bottomtabbar.BottomTabBar;
 
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+import view.zhengxiaolong.bw.com.gittext.R;
+import view.zhengxiaolong.bw.com.gittext.adapter.MyDrawAdapter;
 import view.zhengxiaolong.bw.com.gittext.base.BaseActivity;
 import view.zhengxiaolong.bw.com.gittext.fragment.MvFragment;
 import view.zhengxiaolong.bw.com.gittext.fragment.ParagraphFragment;
@@ -29,6 +38,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private LinearLayout mDrawid;
     private LinearLayout mDrawLinearlayout;
     private DrawerLayout mDrawDrawerlayout;
+    private ImageView mDrawTouxaing;
+    private ListView mDrawLv;
+    private TextView mDrawName;
+    private SharedPreferences userOne;
 
     @Override
     protected int getViewID() {
@@ -44,15 +57,41 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mDrawid = (LinearLayout) findViewById(R.id.drawid);
         mDrawLinearlayout = (LinearLayout) findViewById(R.id.draw_linearlayout);
         mDrawDrawerlayout = (DrawerLayout) findViewById(R.id.draw_drawerlayout);
+        mMTouXiang.setOnClickListener(this);
+        mMTitle.setOnClickListener(this);
+        mMBianJi.setOnClickListener(this);
+        mDrawid.setOnClickListener(this);
+        mBottomTabBar.setOnClickListener(this);
+        mDrawTouxaing = (ImageView) findViewById(R.id.draw_touxaing);
+        mDrawLv = (ListView) findViewById(R.id.draw_lv);
+        mDrawLinearlayout.setOnClickListener(this);
         mDrawDrawerlayout.setOnClickListener(this);
+
+        mDrawTouxaing.setOnClickListener(this);
+        mDrawName = (TextView) findViewById(R.id.draw_username);
+        userOne = this.getSharedPreferences("UserOne", MODE_PRIVATE);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        String name = userOne.getString("name", "嘻嘻嘻");
+        mDrawName.setText(name);
     }
 
     @Override
     protected void initData() {
+
+
         Glide.with(this)
                 .load(R.drawable.touxiang)
                 .bitmapTransform(new RoundedCornersTransformation(this, 100, 5))
                 .into(mMTouXiang);
+        Glide.with(this)
+                .load(R.drawable.touxiang)
+                .bitmapTransform(new RoundedCornersTransformation(this, 100, 5))
+                .into(mDrawTouxaing);
 
         mBottomTabBar.init(getSupportFragmentManager())
                 .setImgSize(60, 60)
@@ -74,6 +113,25 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 Toast.makeText(MainActivity.this, "编辑", Toast.LENGTH_SHORT).show();
             }
         });
+
+        mDrawTouxaing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mMBianJi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,CreatActivity.class));
+            }
+        });
+
+        MyDrawAdapter adapter;
+
+
     }
 
     @Override
@@ -86,4 +144,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         mDrawDrawerlayout.openDrawer(mDrawLinearlayout);
     }
+
+
 }

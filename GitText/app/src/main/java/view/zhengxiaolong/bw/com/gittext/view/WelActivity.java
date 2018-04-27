@@ -1,10 +1,12 @@
-package view.zhengxiaolong.bw.com.gittext;
+package view.zhengxiaolong.bw.com.gittext.view;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import view.zhengxiaolong.bw.com.gittext.R;
 
 public class WelActivity extends AppCompatActivity {
 
