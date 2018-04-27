@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    >
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/parag_img_left"
+        android:src="@drawable/dz1"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        >
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/paragTv_up"
+           android:text="天蝎牛嗨"
+           />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/paragTime"
+            android:text="2017-10-11"
+            />
+    </LinearLayout>
+    <ImageView
+        android:layout_marginLeft="240dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/parag_img_right"
+        android:src="@mipmap/raw_1500020546"
+        />
+</LinearLayout>

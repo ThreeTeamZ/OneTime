@@ -5,6 +5,7 @@ import android.database.Observable;
 import io.reactivex.Flowable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
+import view.zhengxiaolong.bw.com.gittext.bean.GetCrossDZ;
 import view.zhengxiaolong.bw.com.gittext.bean.GetMVInfo;
 
 /**
@@ -14,4 +15,8 @@ import view.zhengxiaolong.bw.com.gittext.bean.GetMVInfo;
 public interface ApiService {
     @GET("/quarter/getVideos")
     Flowable<GetMVInfo> getMv(@Query("source") String source, @Query("uid") String uid, @Query("appVersion") String appVersion);
+    @GET("/quarter/getJokes ")
+    Flowable<GetCrossDZ> getDz(@Query("source") String source,@Query("page") String page,@Query("appVersion") String appVersion );
+
+
 }
