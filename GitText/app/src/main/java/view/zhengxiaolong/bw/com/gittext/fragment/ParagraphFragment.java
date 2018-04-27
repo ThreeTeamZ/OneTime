@@ -66,14 +66,11 @@ public class ParagraphFragment extends BaseFragment implements IDZFragment {
         } else {
             persenter.getMv("android", page, "1");
         }
-<<<<<<< HEAD
-=======
     }
 
     @Override
     protected void getDestory() {
 
->>>>>>> f53fa8fd6e28e860831a8f178f5e482d485ff5cc
     }
 
     @Override
