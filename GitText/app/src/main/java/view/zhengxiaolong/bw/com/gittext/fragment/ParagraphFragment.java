@@ -23,13 +23,14 @@ import view.zhengxiaolong.bw.com.gittext.utils.RecyclerViewItemDecoration;
  * Created by lenovo on 2018/4/25.
  */
 
-public class ParagraphFragment extends BaseFragment implements IDZFragment{
+public class ParagraphFragment extends BaseFragment implements IDZFragment {
 
     private XRecyclerView paragxRecycler;
     private DuanPersenter persenter;
     private String page;
     private List<GetCrossDZ.DataBean> dataAll;
     private DuanAdapter adapter;
+
 
     @Override
     protected int getLayoutID() {
@@ -42,11 +43,12 @@ public class ParagraphFragment extends BaseFragment implements IDZFragment{
         paragxRecycler.setRefreshProgressStyle(ProgressStyle.BallZigZag); //设定下拉刷新样式
         paragxRecycler.setLoadingMoreProgressStyle(ProgressStyle.BallZigZag);//设定上拉加载样式
         //添加Android自带的分割线
-        paragxRecycler.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
+        paragxRecycler.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         RecyclerViewItemDecoration decoration = new RecyclerViewItemDecoration(5);
         paragxRecycler.addItemDecoration(decoration);
-        paragxRecycler.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
+        paragxRecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
         persenter = new DuanPersenter(this);
+
 
     }
 
@@ -58,7 +60,6 @@ public class ParagraphFragment extends BaseFragment implements IDZFragment{
         } else {
             persenter.getMv("android", page, "1");
         }
-
     }
 
     @Override
@@ -66,8 +67,24 @@ public class ParagraphFragment extends BaseFragment implements IDZFragment{
         this.dataAll = dataBeans;
         adapter = new DuanAdapter(getActivity());
         adapter.setList(dataAll);
-         paragxRecycler.setAdapter(adapter);
+        paragxRecycler.setAdapter(adapter);
+        adapter.setOnItemClickListener(new DuanAdapter.OnItemClickLister() {
+
+           @Override
+           public void onClick(int position) {
+               Toast.makeText(getActivity(),"您点击了"+position+"行2",Toast.LENGTH_SHORT).show();
+
+           }
+
+           @Override
+           public void onLongClick(int position) {
+               Toast.makeText(getActivity(),"您点击了"+position+"行1",Toast.LENGTH_SHORT).show();
+
+           }
+       });
+
     }
+
 
     @Override
     public void onFailed(String s) {
