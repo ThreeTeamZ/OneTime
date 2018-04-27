@@ -119,6 +119,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             }
         });
 
+        mMBianJi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,CreatActivity.class));
+            }
+        });
+
         MyDrawAdapter adapter;
 
 

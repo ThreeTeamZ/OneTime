@@ -6,7 +6,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/time"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -24,7 +24,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.LoginActivity" />
-        <activity android:name=".view.RegisterActivity"></activity>
+        <activity android:name=".view.RegisterActivity" />
+        <activity android:name=".view.CreatActivity" />
+        <activity android:name=".view.UserXiangActivity"></activity>
     </application>
 
 </manifest>

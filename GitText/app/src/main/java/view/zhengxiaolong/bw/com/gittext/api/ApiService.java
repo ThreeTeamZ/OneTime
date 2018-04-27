@@ -8,6 +8,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
+import view.zhengxiaolong.bw.com.gittext.bean.DianZanInfo;
 import view.zhengxiaolong.bw.com.gittext.bean.GetMVInfo;
 import view.zhengxiaolong.bw.com.gittext.bean.LoginInfo;
 import view.zhengxiaolong.bw.com.gittext.bean.RegisterInfo;
@@ -31,4 +32,8 @@ public interface ApiService {
     @POST("/quarter/register")
     Flowable<RegisterInfo> getRegister(@Field("mobile") String mobile,@Field("password") String password);
 
+    //点赞
+    @FormUrlEncoded
+    @POST("/quarter/praise")
+    Flowable<DianZanInfo> getDianZan(@Field("wid") String wid,@Field("uid") String uid,@Field("token") String token,@Field("source") String source,@Field("appVersion")String appVersion);
 }

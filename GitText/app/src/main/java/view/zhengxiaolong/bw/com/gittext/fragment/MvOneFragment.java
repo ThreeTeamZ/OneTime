@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -22,6 +23,8 @@ import view.zhengxiaolong.bw.com.gittext.ifragment.IMvFragment;
 import view.zhengxiaolong.bw.com.gittext.persenter.MvPersenter;
 import view.zhengxiaolong.bw.com.gittext.utils.RecyclerViewItemDecoration;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * Created by lenovo on 2018/4/25.
  */
@@ -36,6 +39,7 @@ public class MvOneFragment extends BaseFragment implements IMvFragment {
     private int appVerson = 101;
     private SharedPreferences userOne;
     private int i;
+    private SharedPreferences mSharedPreferences;
 
     @Override
     protected int getLayoutID() {
@@ -52,7 +56,8 @@ public class MvOneFragment extends BaseFragment implements IMvFragment {
         mMOneRlv.addItemDecoration(decoration);
         mMOneRlv.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         persenter = new MvPersenter(this);
-
+        mSharedPreferences = getActivity().getSharedPreferences("UserOne",MODE_PRIVATE);
+        uid = mSharedPreferences.getString("uid", "");
     }
 
     @Override
@@ -94,6 +99,10 @@ public class MvOneFragment extends BaseFragment implements IMvFragment {
                 intent.putExtra("url",dataAll.get(position).getVideoUrl()+"");
                 intent.putExtra("title",dataAll.get(position).getWorkDesc()+"");
                 intent.putExtra("img",dataAll.get(position).getCover()+"");
+                intent.putExtra("wid",dataAll.get(position).getWid()+"");
+                Log.i("AAA",dataAll.get(position).getWid()+"---->>> wid");
+                Log.i("AAA",uid+"---->>> uid");
+                Log.i("AAA","---->>> token");
                 startActivity(intent);
             }
         });

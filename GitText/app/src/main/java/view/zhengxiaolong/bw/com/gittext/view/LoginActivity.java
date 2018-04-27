@@ -2,6 +2,7 @@ package view.zhengxiaolong.bw.com.gittext.view;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -80,7 +81,8 @@ public class LoginActivity extends BaseActivity<LoginPersenter> implements ILogi
             edit.putString("token",dataBeans.getData().getToken()+"");
             edit.putString("name",dataBeans.getData().getUsername()+"");
             edit.commit();
-            Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "登录成功"+mSharedPreferences.getString("uid","没存上"), Toast.LENGTH_SHORT).show();
+            Log.i("AAA",dataBeans.getData().getToken()+"--->>> token");
             finish();
         }else{
             Toast.makeText(this, dataBeans.getMsg(), Toast.LENGTH_SHORT).show();

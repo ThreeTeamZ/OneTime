@@ -57,9 +57,10 @@ public class MvTwoFragment extends BaseFragment implements IMvFragment{
 
     }
 
+
     @Override
-    public void onResume() {
-        super.onResume();
+    protected void initData() {
+
         userOne = getActivity().getSharedPreferences("UserOne", Context.MODE_PRIVATE);
         uid = userOne.getString("uid", "");
         if (this.uid.equals("") || this.uid == null) {
@@ -72,12 +73,6 @@ public class MvTwoFragment extends BaseFragment implements IMvFragment{
             }
             persenter.getMv("android", i+"", "1");
         }
-
-    }
-
-    @Override
-    protected void initData() {
-
 
 
 
