@@ -18,6 +18,7 @@ import java.util.List;
 import view.zhengxiaolong.bw.com.gittext.R;
 import view.zhengxiaolong.bw.com.gittext.adapter.MyMVOneAdapter;
 import view.zhengxiaolong.bw.com.gittext.base.BaseFragment;
+import view.zhengxiaolong.bw.com.gittext.base.BasePresenter;
 import view.zhengxiaolong.bw.com.gittext.bean.GetMVInfo;
 import view.zhengxiaolong.bw.com.gittext.bean.ProgressStyle;
 import view.zhengxiaolong.bw.com.gittext.ifragment.IMvFragment;
@@ -42,8 +43,13 @@ public class MvTwoFragment extends BaseFragment implements IMvFragment{
     private RecyclerView mTwoRlv;
 
     @Override
-    protected int getLayoutID() {
+    protected int getLayoutId() {
         return R.layout.mvtwofragment;
+    }
+
+    @Override
+    protected BasePresenter getPresenter() {
+        return null;
     }
 
     @Override
@@ -57,10 +63,8 @@ public class MvTwoFragment extends BaseFragment implements IMvFragment{
 
     }
 
-
     @Override
-    protected void initData() {
-
+    protected void getData() {
         userOne = getActivity().getSharedPreferences("UserOne", Context.MODE_PRIVATE);
         uid = userOne.getString("uid", "");
         if (this.uid.equals("") || this.uid == null) {
@@ -74,10 +78,13 @@ public class MvTwoFragment extends BaseFragment implements IMvFragment{
             persenter.getMv("android", i+"", "1");
         }
 
+    }
 
-
+    @Override
+    protected void getDestory() {
 
     }
+
 
     @Override
     public void onSuccess(final List<GetMVInfo.DataBean> dataBeans) {

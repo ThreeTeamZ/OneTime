@@ -13,6 +13,7 @@ public class Api {
    //获取段子https://www.zhaoapi.cn/quarter/getJokes
     public static final String DUAN="https://www.zhaoapi.cn";
 
+<<<<<<< HEAD
 
     //登录 https://www.zhaoapi.cn/user/login
 
@@ -21,4 +22,6 @@ public class Api {
     //点赞 https://www.zhaoapi.cn/quarter/praise?wid=427&uid=14363&token=A4B32C5C8850494A207E498FAD4946E7&source=android&appVersion=1
 
 
+=======
+>>>>>>> f53fa8fd6e28e860831a8f178f5e482d485ff5cc
 }
