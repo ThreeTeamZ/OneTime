@@ -13,4 +13,6 @@ public class Api {
    //获取段子https://www.zhaoapi.cn/quarter/getJokes
     public static final String DUAN="https://www.zhaoapi.cn";
 
+
+    // https://www.zhaoapi.cn/quarter/getNearVideos?token=view.zhengxiaolong.bw.com.gittext.bean.GetMVInfo$DataBean@4aae3d04&source=android&appVersion=101&latitude=40&longitude=40&page=1&type=1
 }

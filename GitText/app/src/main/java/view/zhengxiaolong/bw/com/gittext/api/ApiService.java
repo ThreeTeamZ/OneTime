@@ -12,6 +12,7 @@ import view.zhengxiaolong.bw.com.gittext.bean.BannerSuperClass;
 import view.zhengxiaolong.bw.com.gittext.bean.GetCrossDZ;
 import view.zhengxiaolong.bw.com.gittext.bean.DianZanInfo;
 import view.zhengxiaolong.bw.com.gittext.bean.GetMVInfo;
+import view.zhengxiaolong.bw.com.gittext.bean.GetMVInfo2;
 import view.zhengxiaolong.bw.com.gittext.bean.LoginInfo;
 import view.zhengxiaolong.bw.com.gittext.bean.RecommendListSuperClass;
 import view.zhengxiaolong.bw.com.gittext.bean.RegisterInfo;
@@ -51,4 +52,8 @@ public interface ApiService {
     @POST("/quarter/getVideos")
     Flowable<RecommendListSuperClass> getRecommendListData(@Field("uid")String uid, @Field("type")String type, @Field("page")String page, @Field("source")String android, @Field("appVersion")String appVersion);
 
+
+    @FormUrlEncoded
+    @POST("/quarter/getNearVideos")
+    Flowable<GetMVInfo2> getMv2(@Field("source") String source,@Field("token") String token,@Field("appVersion") String appVersion,@Field("latitude") String latitude,@Field("longitude") String longitude,@Field("page") String page,@Field("type") String type);
 }

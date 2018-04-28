@@ -62,12 +62,9 @@ public class MvOneFragment extends BaseFragment implements IMvFragment {
         /*mMOneRlv.setRefreshProgressStyle(ProgressStyle.BallZigZag); //设定下拉刷新样式
         mMOneRlv.setLoadingMoreProgressStyle(ProgressStyle.BallZigZag);//设定上拉加载样式*/
 
-<<<<<<< HEAD
         mMOneRlv.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-=======
        /* RecyclerViewItemDecoration decoration = new RecyclerViewItemDecoration(5);
         mMOneRlv.addItemDecoration(decoration);*/
->>>>>>> f53fa8fd6e28e860831a8f178f5e482d485ff5cc
         persenter = new MvPersenter(this);
         mSharedPreferences = getActivity().getSharedPreferences("UserOne",MODE_PRIVATE);
         uid = mSharedPreferences.getString("uid", "");
