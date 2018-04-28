@@ -21,8 +21,8 @@ import java.util.Map;
 import view.zhengxiaolong.bw.com.gittext.R;
 
 /**
- *
- */
+ * 视频-->拍摄视频-->视频管理
+ * */
 public class ShowVideoActivity extends AppCompatActivity {
     private GridView gridView;
     private List<Map<String, Object>> items;
