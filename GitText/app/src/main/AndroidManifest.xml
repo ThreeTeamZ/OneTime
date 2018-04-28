@@ -32,12 +32,8 @@
         <activity android:name=".view.RegisterActivity" />
         <activity android:name=".view.CreatActivity" />
         <activity android:name=".view.UserXiangActivity" />
-<<<<<<< HEAD
-        <activity android:name=".view.AActivity"></activity>
-=======
         <activity android:name=".view.ShootVideoActivity"></activity>
         <activity android:name=".view.ShowVideoActivity" />
->>>>>>> 86f06117eeb2f0f187145698ad3ce616f1b615c0
     </application>
 
 </manifest>

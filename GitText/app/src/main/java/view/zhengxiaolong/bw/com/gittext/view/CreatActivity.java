@@ -1,10 +1,7 @@
 package view.zhengxiaolong.bw.com.gittext.view;
 
-<<<<<<< HEAD
-=======
 import android.content.Intent;
 import android.os.Bundle;
->>>>>>> 86f06117eeb2f0f187145698ad3ce616f1b615c0
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
