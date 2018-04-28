@@ -69,6 +69,7 @@ public class CreatActivity extends BaseActivity implements View.OnClickListener 
             default:
                 break;
             case R.id.Creat_Vedio:
+                //跳转到视频录制页面
                 Intent intent = new Intent(CreatActivity.this,ShootVideoActivity.class);
                 startActivity(intent);
                 break;
