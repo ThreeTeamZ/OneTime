@@ -1,5 +1,6 @@
 package view.zhengxiaolong.bw.com.gittext.adapter;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -25,9 +26,21 @@ import view.zhengxiaolong.bw.com.gittext.bean.GetCrossDZ;
  */
 
 public class DuanAdapter extends RecyclerView.Adapter<DuanAdapter.MyViewHolder>  {
-    private List<GetCrossDZ.DataBean> dataAll;
+
+
+
+     private List<GetCrossDZ.DataBean> dataAll;
      private Context context;
-    private ArrayList<Integer> heightList;
+     private ArrayList<Integer> heightList;
+     private   OnItemClickLister mOnItemClickListener;
+
+    public interface OnItemClickLister{
+        void onClick( int position);
+        void onLongClick( int position);
+    }
+    public void setOnItemClickListener(OnItemClickLister onItemClickLister ){
+        this.mOnItemClickListener=onItemClickLister;
+    }
 
     public DuanAdapter(Context context) {
         this.context = context;
@@ -50,11 +63,13 @@ public class DuanAdapter extends RecyclerView.Adapter<DuanAdapter.MyViewHolder> 
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.parag_item, parent, false);
         MyViewHolder holder = new MyViewHolder(view);
+
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
+
         String imgUrls = dataAll.get(position).getImgUrls();
         if (imgUrls != null && !"".equals(imgUrls)){
             String[] split = imgUrls.split("\\|");
@@ -76,7 +91,21 @@ public class DuanAdapter extends RecyclerView.Adapter<DuanAdapter.MyViewHolder> 
                 .into(holder.parag_img_right);
         holder.paragTime.setText(createTime);
       //  holder.paragTv.setText(content);
-
+        if( mOnItemClickListener!= null){
+            holder.itemView.setOnClickListener( new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickListener.onClick(position);
+                }
+            });
+            holder. itemView.setOnLongClickListener( new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    mOnItemClickListener.onLongClick(position);
+                    return false;
+                }
+            });
+        }
     }
 
     @Override
@@ -101,7 +130,11 @@ public class DuanAdapter extends RecyclerView.Adapter<DuanAdapter.MyViewHolder> 
            parag_img_right = itemView.findViewById(R.id.parag_img_right);
            paragTv = itemView.findViewById(R.id.paragTv);
 
+
+
+
      }
+
  }
 
 

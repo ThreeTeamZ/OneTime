@@ -1,5 +1,7 @@
 package view.zhengxiaolong.bw.com.gittext.persenter;
 
+import android.widget.AdapterView;
+
 import java.util.List;
 
 import view.zhengxiaolong.bw.com.gittext.bean.GetCrossDZ;

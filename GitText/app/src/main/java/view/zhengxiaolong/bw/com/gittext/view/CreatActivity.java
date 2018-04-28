@@ -1,5 +1,10 @@
 package view.zhengxiaolong.bw.com.gittext.view;
 
+<<<<<<< HEAD
+=======
+import android.content.Intent;
+import android.os.Bundle;
+>>>>>>> 86f06117eeb2f0f187145698ad3ce616f1b615c0
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -67,7 +72,8 @@ public class CreatActivity extends BaseActivity implements View.OnClickListener 
             default:
                 break;
             case R.id.Creat_Vedio:
-                Toast.makeText(this, "拍视频", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(CreatActivity.this,ShootVideoActivity.class);
+                startActivity(intent);
                 break;
             case R.id.Creat_DZ:
                 Toast.makeText(this, "写段子", Toast.LENGTH_SHORT).show();
