@@ -66,12 +66,6 @@ public class MyMVOneAdapter extends RecyclerView.Adapter<MyMVOneAdapter.MyViewHo
                 onItemClick.onClick(position);
             }
         });
-        /*String icon = dataAll.get(position).getUser().getIcon();
-        if (icon != null && !"".equals(icon)){
-            Glide.with(context).load(icon).into(holder.imageView);
-        }else {
-            Glide.with(context).load(R.mipmap.ic_launcher).into(holder.imageView);
-        }*/
     }
 
     @Override

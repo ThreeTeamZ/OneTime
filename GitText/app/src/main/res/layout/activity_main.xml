@@ -53,6 +53,13 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:id="@+id/draw_lv"/>
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/tui"
+            android:text="退出登录"/>
     </LinearLayout>
 
     </android.support.v4.widget.DrawerLayout>

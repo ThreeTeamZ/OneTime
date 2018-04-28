@@ -62,6 +62,7 @@ public class MvOneFragment extends BaseFragment implements IMvFragment {
         /*mMOneRlv.setRefreshProgressStyle(ProgressStyle.BallZigZag); //设定下拉刷新样式
         mMOneRlv.setLoadingMoreProgressStyle(ProgressStyle.BallZigZag);//设定上拉加载样式*/
 
+        mMOneRlv.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
        /* RecyclerViewItemDecoration decoration = new RecyclerViewItemDecoration(5);
         mMOneRlv.addItemDecoration(decoration);*/
         persenter = new MvPersenter(this);
@@ -126,7 +127,7 @@ public class MvOneFragment extends BaseFragment implements IMvFragment {
                 intent.putExtra("wid",dataAll.get(position).getWid()+"");
                 Log.i("AAA",dataAll.get(position).getWid()+"---->>> wid");
                 Log.i("AAA",uid+"---->>> uid");
-                Log.i("AAA","---->>> token");
+                Log.i("AAA",dataAll.get(position)+"---->>> token");
                 startActivity(intent);
             }
         });
