@@ -26,7 +26,9 @@ import java.io.IOException;
 import java.util.Calendar;
 
 import view.zhengxiaolong.bw.com.gittext.R;
-
+/**
+ * 视频-->拍摄视频
+ * */
 public class ShootVideoActivity extends Activity implements SurfaceHolder.Callback {
     private static final String TAG = "ShootVideoActivity";
     private SurfaceView mSurfaceView;
