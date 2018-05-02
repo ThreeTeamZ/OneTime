@@ -65,13 +65,13 @@ public class ShootVideoActivity extends Activity implements SurfaceHolder.Callba
                     Log.d(TAG,"停止录像");
                     stopRecording();
                     mTimer.stop();
-                    mBtnStartStop.setBackgroundResource(R.drawable.rec_start);
+                    mBtnStartStop.setBackgroundResource(R.mipmap.rec_start);
                 } else {
                     if (startRecording()) {
                         Log.d(TAG,"开始录像");
                         mTimer.setBase(SystemClock.elapsedRealtime());
                         mTimer.start();
-                        mBtnStartStop.setBackgroundResource(R.drawable.rec_stop);
+                        mBtnStartStop.setBackgroundResource(R.mipmap.rec_stop);
                     }
                 }
             }

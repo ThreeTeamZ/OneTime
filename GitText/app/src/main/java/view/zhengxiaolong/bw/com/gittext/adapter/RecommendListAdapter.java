@@ -61,7 +61,7 @@ public class RecommendListAdapter extends RecyclerView.Adapter<RecommendListAdap
         String icon = list.get(position).getUser().getIcon();
         if (icon != null && !"".equals(icon)){
             Glide.with(context)
-                    .load(R.drawable.dz6)
+                    .load(R.mipmap.dz6)
                     .bitmapTransform(new RoundedCornersTransformation(context, 100, 5))
                     .into(holder.recommend_list_image);
         }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroud"
+    android:background="@mipmap/backgroud"
     tools:context="view.zhengxiaolong.bw.com.gittext.view.CreatActivity">
 <include layout="@layout/creat_title"/>
     <ImageView
@@ -15,12 +15,12 @@
         android:layout_marginTop="60dp"
         android:layout_marginBottom="60dp"
         android:id="@+id/Creat_Vedio"
-        android:src="@drawable/shipin2"/>
+        android:src="@mipmap/shipin2"/>
 
     <ImageView
         android:layout_gravity="center"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/Creat_DZ"
-        android:src="@drawable/duanzi2"/>
+        android:src="@mipmap/duanzi2"/>
 </LinearLayout>

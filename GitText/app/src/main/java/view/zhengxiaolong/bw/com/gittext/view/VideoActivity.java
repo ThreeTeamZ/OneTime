@@ -67,7 +67,7 @@ public class VideoActivity extends BaseActivity<DianZanPersenter> implements IDi
     protected void initData() {
 
         Glide.with(this)
-                .load(R.drawable.touxiang)
+                .load(R.mipmap.touxiang)
                 .bitmapTransform(new RoundedCornersTransformation(this,100,5))
                 .into(mVedioTouXiang);
        // Toast.makeText(this, vedio_url, Toast.LENGTH_SHORT).show();
@@ -103,14 +103,14 @@ public class VideoActivity extends BaseActivity<DianZanPersenter> implements IDi
             @Override
             public void onClick(View v) {
                 if (flag){
-                    mXinsui.setImageResource(R.drawable.xin_white);
+                    mXinsui.setImageResource(R.mipmap.xin_white);
                     Toast.makeText(VideoActivity.this, "", Toast.LENGTH_SHORT).show();
                     flag = !flag;
                 }else if (!flag){
-                    mXinsui.setImageResource(R.drawable.xin_black);
+                    mXinsui.setImageResource(R.mipmap.xin_black);
                     Toast.makeText(VideoActivity.this, "不喜欢", Toast.LENGTH_SHORT).show();
                     flag=!flag;
-                    int xin_red = R.drawable.xin;
+                    int xin_red = R.mipmap.xin;
                     mXin.setImageResource(xin_red);
                 }
 
@@ -130,7 +130,7 @@ public class VideoActivity extends BaseActivity<DianZanPersenter> implements IDi
     @Override
     public void onSuccess(DianZanInfo dianZanInfo) {
         Toast.makeText(this, dianZanInfo.getMsg(), Toast.LENGTH_SHORT).show();
-        int xin_red = R.drawable.xin_red;
+        int xin_red = R.mipmap.xin_red;
         mXin.setImageResource(xin_red);
 
     }

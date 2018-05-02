@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/touxiang"
+        android:src="@mipmap/touxiang"
         android:layout_centerVertical="true"
         glide:placeholderImage="@mipmap/touxiang"
         glide:placeholderImageScaleType="fitCenter"
@@ -30,7 +30,7 @@
     <ImageView
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:src="@drawable/bx"
+        android:src="@mipmap/bx"
         android:layout_margin="10dp"
         android:id="@+id/mBianJi"/>
 

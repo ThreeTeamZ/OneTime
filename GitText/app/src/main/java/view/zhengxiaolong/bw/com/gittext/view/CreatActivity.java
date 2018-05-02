@@ -41,11 +41,11 @@ public class CreatActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void initData() {
         Glide.with(this)
-                .load(R.drawable.sp6)
+                .load(R.mipmap.sp6)
                 .bitmapTransform(new RoundedCornersTransformation(this, 100, 5))
                 .into(mCreatVedio);
         Glide.with(this)
-                .load(R.drawable.dz6)
+                .load(R.mipmap.dz6)
                 .bitmapTransform(new RoundedCornersTransformation(this, 100, 5))
                 .into(mCreatDZ);
 

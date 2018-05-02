@@ -37,7 +37,7 @@
             android:layout_centerInParent="true"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/touxiang"
+            android:src="@mipmap/touxiang"
             android:id="@+id/draw_touxaing"/>
             <TextView
                 android:id="@+id/draw_username"

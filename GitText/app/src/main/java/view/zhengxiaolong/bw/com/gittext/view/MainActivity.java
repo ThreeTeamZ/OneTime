@@ -92,11 +92,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
         Glide.with(this)
-                .load(R.drawable.touxiang)
+                .load(R.mipmap.touxiang)
                 .bitmapTransform(new RoundedCornersTransformation(this, 100, 5))
                 .into(mMTouXiang);
         Glide.with(this)
-                .load(R.drawable.touxiang)
+                .load(R.mipmap.touxiang)
                 .bitmapTransform(new RoundedCornersTransformation(this, 100, 5))
                 .into(mDrawTouxaing);
 
@@ -104,9 +104,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 .setImgSize(60, 60)
                 .setFontSize(8)
                 .setTabPadding(4, 6, 10)
-                .addTabItem("推荐", R.drawable.tj2, R.drawable.tj1, RecommendFragment.class)
-                .addTabItem("段子", R.drawable.dz2, R.drawable.dz1, ParagraphFragment.class)
-                .addTabItem("视频", R.drawable.sp2, R.drawable.sp1, MvFragment.class)
+                .addTabItem("推荐", R.mipmap.tj2, R.mipmap.tj1, RecommendFragment.class)
+                .addTabItem("段子", R.mipmap.dz2, R.mipmap.dz1, ParagraphFragment.class)
+                .addTabItem("视频", R.mipmap.sp2, R.mipmap.sp1, MvFragment.class)
                 .isShowDivider(false)
                 .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
                     @Override

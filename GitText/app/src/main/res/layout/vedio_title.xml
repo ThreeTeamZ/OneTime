@@ -21,21 +21,21 @@
             android:layout_height="35dp"
             android:layout_margin="10dp"
             android:id="@+id/xin"
-            android:src="@drawable/xin"/>
+            android:src="@mipmap/xin"/>
 
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:id="@+id/xinsui"
             android:layout_margin="10dp"
-            android:src="@drawable/xin_white"/>
+            android:src="@mipmap/xin_white"/>
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="10dp"
             android:id="@+id/fenxiang"
-            android:src="@drawable/fenxiang"/>
+            android:src="@mipmap/fenxiang"/>
     </LinearLayout>
 
     <LinearLayout
@@ -49,7 +49,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_margin="10dp"
-            android:src="@drawable/touxiang"/>
+            android:src="@mipmap/touxiang"/>
     </LinearLayout>
 
 </LinearLayout>
